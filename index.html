@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
 <head>
+ 
 	<meta charset="utf-8">
 	<title>送李姣小朋友的一封信</title>	    
-    <link type="text/css" rel="stylesheet" href="css/default.css">
+    <link type="text/css" rel="stylesheet" href="css/default.css"> 
 		
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jscex.min.js"></script>
@@ -185,83 +186,85 @@ document.write(password());
 	                $await(Jscex.Async.sleep(10));
 	            } while (tree.canFlower());
 	        }));
+	
+	        var moveAnimate = eval(Jscex.compile("async", function () {
+	            tree.snapshot("p1", 240, 0, 610, 680);
+	            while (tree.move("p1", 500, 0)) {
+	                foot.draw();
+	                $await(Jscex.Async.sleep(10));
+	            }
+	            foot.draw();
+	            tree.snapshot("p2", 500, 0, 610, 680);
+	
+	            // 会有闪烁不得意这样做
+	            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+	            canvas.css("background", "#ffe");
+	            $await(Jscex.Async.sleep(300));
+	            canvas.css("background", "none");
+	        }));
+	
+	        var jumpAnimate = eval(Jscex.compile("async", function () {
+	            var ctx = tree.ctx;
+	            while (true) {
+	                tree.ctx.clearRect(0, 0, width, height);
+	                tree.jump();
+	                foot.draw();
+	                $await(Jscex.Async.sleep(25));
+	            }
+	        }));
+	
+	        var textAnimate = eval(Jscex.compile("async", function () {
+			    var together = new Date();
+			    together.setFullYear(2023,4 , 09); 			//时间年月日
+			    together.setHours(0);						//小时	
+			    together.setMinutes(53);					//分钟
+			    together.setSeconds(0);					//秒前一位
+			    together.setMilliseconds(2);				//秒第二位
+	
+			    $("#code").show().typewriter();
+	            $("#clock-box").fadeIn(500);
+	            while (true) {
+	                timeElapse(together);
+	                $await(Jscex.Async.sleep(1000));
+	            }
+	        }));
+	
+	        var runAsync = eval(Jscex.compile("async", function () {
+	            $await(seedAnimate());
+	            $await(growAnimate());
+	            $await(flowAnimate());
+	            $await(moveAnimate());
+	
+	            textAnimate().start();
+	
+	            $await(jumpAnimate());
+	        }));
+	
+	        runAsync().start();
+	    })();
+	    
+    </script>
+<
+    
+    
+    
+    
+    
+	<!--=======附属说明====================================================-->
+	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+		<p>
+			                       <a href="http://jdd798xp90.lwy3.top/">你就是我的</a>      
 
-无功功率，无功功率移动的= 评估 ( 杰西克斯编译 (“异步” ,功能 ( ) {
-树快照 (“第1页” , two hundred and forty , zero , six hundred and ten , six hundred and eighty ) ;
-虽然 (树移动 (“第1页” , five hundred , zero ) ) {
-英尺画 ( ) ;
-$等待 ( 杰西克斯异步 .睡觉 ( ten ) ) ;
- }
-英尺画 ( ) ;
-树快照 (“第2页” , five hundred , zero , six hundred and ten , six hundred and eighty ) ;
+		</p>
+	</div>
+	
+	
 
- //There will be flashes of dissatisfaction
-帆布起源 ( ) .css公司 (“背景” ,“url（”树 目标数据URL ( &#39;图像/png&#39; )+ &#34;)&#34; ) ;
-帆布css公司 (“背景” , “#ffe” ) ;
-$等待 ( 杰西克斯异步 .睡觉 ( three hundred ) ) ;
-帆布css公司 (“背景” ,“无” ) ;
- } ) ) ;
+	
+	
+	
+	
+	
 
-无功功率，无功功率 跳转动画= 评估 ( 杰西克斯编译 (“异步” ,功能 ( ) {
-无功功率，无功功率ctx公司= tree.ctx公司 ;
-虽然 (真的 ) {
-树ctx公司 . 清除矩形 ( zero , zero、宽度、高度 ) ;
-树跳 ( ) ;
-英尺画 ( ) ;
-$等待 ( 杰西克斯异步 .睡觉 ( twenty-five ) ) ;
- }
- } ) ) ;
-
-无功功率，无功功率 text动画= 评估 ( 杰西克斯编译 (“异步” ,功能 ( ) {
-无功功率，无功功率在一起=新的日期 ( ) ;
-一起 setFullYear（设置全年） ( two thousand and twenty-three , four , 09 ) ; //Date:
-一起 小时数 ( zero ) ; //Hours
-一起 设置分钟 ( fifty-three ) ; //Minutes
-一起 setSeconds（设置秒） ( zero ) ; //One bit before second
-一起 设置 ( two ) ; //Second bit of second second
-
- $ (“#代码” ) .显示 ( ) .打字机 ( ) ;
- $ (“#时钟盒” ) . 淡入 ( five hundred ) ;
-虽然 (真的 ) {
- 时间消逝 (在一起 ) ;
-$等待 ( 杰西克斯异步 .睡觉 ( one thousand ) ) ;
- }
- } ) ) ;
-
-无功功率，无功功率 运行异步= 评估 ( 杰西克斯编译 (“异步” ,功能 ( ) {
-$等待 ( 请参见动画 ( ) ) ;
-$等待 ( 成长动画 ( ) ) ;
-$等待 ( 流动画 ( ) ) ;
-$等待 (移动的 ( ) ) ;
-
- text动画 ( ) .开始 ( ) ;
-
-$等待 ( 跳转动画 ( ) ) ;
- } ) ) ;
-
- 运行异步 ( ) .开始 ( ) ;
- } ) ( ) ;
-
-</脚本 &#62;
-
-
-
-
-
-<!--=======附属说明====================================================-->
-<div公司风格= &#34;水平对齐 :中心 ;边缘 : fifty二甲苯 zero ;字体 :正常的 fourteen二甲苯 / twenty-four二甲苯 “MicroSoft Yahi” ; &#34; &#62;
-<第页 &#62;
-<一 href公司= &#34; http://www.sharebeast.com网站 &#34; &#62; You are mine</一 &#62;
-
-</第页 &#62;
-</div公司 &#62;
-
-
-
-
-
-
-
-
-</身体 &#62;
-</html格式 &#62;
+</body>
+</html>
